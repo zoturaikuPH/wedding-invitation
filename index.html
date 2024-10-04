@@ -1,0 +1,63 @@
+<!doctype html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<style>
+body{
+overflow:hidden;
+width: 100%;
+height: 100%;
+  margin: auto;
+}
+</style>
+<script type="text/javascript" src="jquery.min.1.7.js"></script>
+<script type="text/javascript" src="turn.min.js"></script>
+</head>
+<body>
+<script>var o,i,e,t,d,a,f,p,l,g,n,m,w,r,u,h,s,c,b,k,x,v,z;function I(){document.body.background='table.png';a=document.createElement("div");a.className='container';document.body.appendChild(a);f=document.createElement("div");f.className='embed';a.appendChild(f);p=document.createElement("div");p.id='flipbook';f.appendChild(p);w=!0;var o=[];for(var i=1;i<9;i++){if(w==!1&&i>1){m=new Image;m.src='0.png';p.appendChild(m);if(i==1){m.className='hard'}}o[i]=new Image;o[i].src=''+i+'.png';p.appendChild(o[i]);if(i==1){o[i].className='hard'}if(i==1){if(w&&window.innerWidth>window.innerHeight){m=new Image;m.src='0.png';p.appendChild(m)}}if(i==3){if(w&&window.innerWidth<window.innerHeight){if(i>1){m=new Image;m.src='0.png';p.appendChild(m)}}l=document.createElement("div");p.appendChild(l);g=document.createElement("iframe");g.src="https://www.google.com/maps/embed?pb=!1m24!1m8!1m3!1d7709.970392878914!2d120.5830036!3d14.9379181!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x33965e8b6a56c083%3A0x8c6fd64f21fd1565!2sSan%20Antonio%20de%20Padua%20Parish%20Church%20-%20San%20Antonio%2C%20Lubao%2C%20Pampanga%20(Archdiocese%20of%20San%20Fernando)%2C%20Purok%201%20San%20Antonio%202005%2C%20Lubao!3m2!1d14.9383863!2d120.57847869999999!4m5!1s0x33965ef16aaaaaab%3A0x666d3b0714da6ed2!2sCVRazon%20Function%20hall!3m2!1d14.9435614!2d120.59765689999999!5e0!3m2!1sen!2sph!4v1709064532342!5m2!1sen!2sph";g.width="600";g.height="450";g.o="";g.loading="lazy";g.i="no-referrer-when-downgrade";g.style="z-index:0; width:90%; height:50%; left:5%; top:23%; position:absolute;";l.appendChild(g);g=new Image;g.src='0.png';g.style="z-index:-1; width:100%; height:100%; left:0%; top:23%; position:static;";l.appendChild(g)}if(w&&window.innerWidth<window.innerHeight){if(i<8){m=new Image;m.src='0.png';p.appendChild(m)}}}r=window.innerWidth;u=window.innerHeight,h=(r+u)/2;s=(u+r)/3;if(r<u){$('#flipbook').turn({width:h*1.2,height:s*1.2,t:!1,p:!0});$('#flipbook').css('border','0px solid red');$('#flipbook').css('margin-left','-80%');$('#flipbook').css('margin-top','25%')}if(r>u){size=1;$('#flipbook').turn({width:h*.75*size,height:s*.75*size,t:!1});$('#flipbook').css('border','0px solid red');setInterval(function(){$('#flipbook').css('margin-left','0%');m=h*.75/6;p=m/r*100;$('#flipbook').css('margin-left',p+'%');if($('#flipbook').turn('page')>1){m=h*.75/2.374;p=m/r*100;$('#flipbook').css('margin-left',p+'%')}if($('#flipbook').turn('page')>9){m=h*.75/1.5;p=m/r*100;$('#flipbook').css('margin-left',p+'%')}});$('#flipbook').css('margin-top',2+'%')}var e=[],n=0;for(var i=0;i<20;i++){e[i]=new Audio('page.mp3')}t=function(){n++;if(n>=20){n=0}e[n].play()};$("#flipbook").bind("turning",function(o,i,e){console.log("Page: "+i);t()});$('#flipbook').click(function(o){var i={x:o.pageX-$(this).offset().left,y:o.pageY-$(this).offset().top}});o=new Image;o.src='left.png';document.body.appendChild(o);o.style=`
+z-index:50;
+position:absolute;
+left:0%;
+top:35%;
+width:10%;
+height:20%;
+`;o.onclick=function(){$('#flipbook').turn('previous')};o=new Image;o.src='right.png';document.body.appendChild(o);o.style=`
+z-index:51;
+position:absolute;
+left:90%;
+top:35%;
+width:10%;
+height:20%;
+`;o.onclick=function(){$('#flipbook').turn('next')};d=new Audio('bg.mp3');LOGO=function(){d.play();o=new Image;o.src='logo.png';document.body.appendChild(o);o.l=.1;o.g=1;setInterval(function(){if(o.g==1){r=window.innerWidth;u=window.innerHeight;k=(r+u)/4;o.l=o.l*1.01;c=k*o.l;b=k*o.l;c=r*o.l;b=r*o.l*(r/u);c/=2,b/=2;o.style=`
+z-index:1001;
+position:absolute;
+left:`+(50-c/2)+`%;
+top:`+(50-b/2)+`%;
+width:`+c+`%;
+height:`+b+`%;
+aspect-ratio:1/1;
+opacity:`+(1-o.l/2)+`;
+`;v.style=`
+z-index:1000;
+position:absolute;
+left:0%;
+top:0%;
+width:100%;
+height:100%;
+opacity:`+(1-o.l/10)+`;
+`;if(1-o.l/2<0){o.g=0;if(o.parentElement.nodeName=='BODY'&&v.parentElement.nodeName=='BODY'){document.body.removeChild(o);document.body.removeChild(v)}}}})};z=function(){if(x.parentElement){LOGO();document.body.removeChild(x)}};r=window.innerWidth;u=window.innerHeight;k=(r+u)/4;c=k/r*100+'';b=k/u*100+'';x=new Image;x.src='help.png';document.body.appendChild(x);x.style=`
+z-index:1002;
+position:absolute;
+left:`+(50-c/2)+`%;
+top:`+(50-b/2)+`%;
+width:`+c+`%;
+height:`+b+`%;
+`;x.onclick=z;v=new Image;v.src='dark.png';document.body.appendChild(v);v.style=`
+z-index:1000;
+position:absolute;
+left:0%;
+top:0%;
+width:`+r+`%;
+height:`+u+`%;
+`;v.onclick=z}I()</script>
+</body></html>
+
